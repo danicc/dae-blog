@@ -1,4 +1,6 @@
 interface Frontmatter {
+  lang: 'en' | 'es';
+  id: string;
   date: string;
   title: string;
   category: string;

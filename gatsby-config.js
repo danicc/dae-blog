@@ -3,6 +3,15 @@ const siteMetadata = require('./src/data/siteMetadata');
 module.exports = {
   siteMetadata,
   plugins: [
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'en',
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        prefixDefault: false,
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-tslint`,
     `gatsby-plugin-react-helmet`,
@@ -50,6 +59,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

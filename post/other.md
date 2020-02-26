@@ -1,10 +1,11 @@
 ---
+id: '2'
 date: '2018-02-24'
-title: 'otro original'
+title: 'other original'
 category: 'React'
 tags: ['react', 'hook']
 banner: ''
-lang: 'es'
+lang: 'en'
 ---
 
 # OTHER

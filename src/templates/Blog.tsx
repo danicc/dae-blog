@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Data from '../models/Data';
 import AllMarkdownRemark from '../models/AllMarkdownRemark';
 
@@ -21,9 +21,20 @@ const Blog: React.FC<Props> = props => {
       {`totalCount ${totalCount}`}
       {`currentPage ${currentPage}`}
       {`totalPages ${totalPages}`}
-      {edges.map(({ node }) => (
-        <h3>{node.frontmatter.title}</h3>
-      ))}
+      {edges.map(({ node }) => {
+        let slug = `/blog/${node.frontmatter.id}`;
+        if (node.frontmatter.lang !== 'en') {
+          slug = `/blog/${node.frontmatter.lang}/${node.frontmatter.id}`;
+        }
+        return (
+          <div key={node.id}>
+            <Link to={slug}>
+              <h3>{node.frontmatter.title}</h3>
+              <p>{node.excerpt}</p>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -37,9 +48,11 @@ export const BlogQuery = graphql`
       edges {
         node {
           frontmatter {
+            id
             title
             date(formatString: "DD.MM.YYYY")
             category
+            lang
           }
           excerpt
         }

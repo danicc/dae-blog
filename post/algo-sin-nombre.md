@@ -1,10 +1,11 @@
 ---
+id: '1'
 date: '2018-02-24'
-title: 'Aglo'
+title: 'Algo'
 category: 'React'
 tags: ['react', 'hook']
 banner: ''
 lang: 'es'
 ---
 
-# Aglo Post
+# Algo Post
