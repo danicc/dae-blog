@@ -1,10 +1,10 @@
 ---
 date: '2018-02-24'
-title: 'Something'
+title: 'UNDERSTANDING useState Hook'
 category: 'React'
 tags: ['react', 'hook']
 banner: ''
 lang: 'en'
 ---
 
-# Something Post
+# First Post

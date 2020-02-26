@@ -1,10 +1,10 @@
 ---
 date: '2018-02-24'
-title: 'Something'
+title: 'otro 2'
 category: 'React'
 tags: ['react', 'hook']
 banner: ''
-lang: 'en'
+lang: 'es'
 ---
 
-# Something Post
+# OTHER

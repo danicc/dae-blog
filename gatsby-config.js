@@ -1,5 +1,4 @@
 const siteMetadata = require('./src/data/siteMetadata');
-const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata,
@@ -28,19 +27,6 @@ module.exports = {
           'gatsby-remark-prismjs',
           'gatsby-remark-autolink-headers',
         ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        // language JSON resource path
-        path: `${__dirname}/src/intl`,
-        // supported language
-        languages: languages.langs,
-        // language file path
-        defaultLanguage: languages.defaultLang,
-        // option to redirect to `/ko` when connecting `/`
-        redirect: true,
       },
     },
     {
