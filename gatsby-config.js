@@ -8,6 +8,29 @@ module.exports = {
     `gatsby-plugin-tslint`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'post',
+        path: `${__dirname}/post`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-autolink-headers',
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-intl`,
       options: {
         // language JSON resource path
