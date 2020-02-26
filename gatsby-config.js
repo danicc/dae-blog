@@ -1,13 +1,25 @@
+const siteMetadata = require('./src/data/siteMetadata');
+const languages = require('./src/data/languages');
+
 module.exports = {
-  siteMetadata: {
-    title: `DAE blog`,
-    description: `My personal blog that I am going to use to share what I am learning about frontend and web technologies`,
-    author: `Daniel Alberto Esquinazi`,
-  },
+  siteMetadata,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-tslint`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: languages.langs,
+        // language file path
+        defaultLanguage: languages.defaultLang,
+        // option to redirect to `/ko` when connecting `/`
+        redirect: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,4 +45,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
