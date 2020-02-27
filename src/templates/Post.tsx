@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { WindowLocation } from '@reach/router';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import PostType from '../models/Post';
 
 interface Props {

@@ -4,7 +4,7 @@ import { WindowLocation } from '@reach/router';
 
 import Data from '../models/Data';
 import AllMarkdownRemark from '../models/AllMarkdownRemark';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 interface Props {
   data: Data;

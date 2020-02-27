@@ -3,6 +3,7 @@ const siteMetadata = require('./src/data/siteMetadata');
 module.exports = {
   siteMetadata,
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
