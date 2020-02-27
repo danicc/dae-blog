@@ -1,7 +1,10 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import { WindowLocation } from '@reach/router';
+
 import Data from '../models/Data';
 import AllMarkdownRemark from '../models/AllMarkdownRemark';
+import Layout from '../components/layout';
 
 interface Props {
   data: Data;
@@ -9,22 +12,23 @@ interface Props {
     currentPage: number;
     totalPages: number;
   };
+  location: WindowLocation;
 }
 
 const Blog: React.FC<Props> = props => {
   const { currentPage, totalPages } = props.pageContext;
 
-  const { data } = props;
+  const { data, location } = props;
   const { edges, totalCount }: AllMarkdownRemark = data.allMarkdownRemark;
   return (
-    <div>
+    <Layout location={location}>
       {`totalCount ${totalCount}`}
       {`currentPage ${currentPage}`}
       {`totalPages ${totalPages}`}
       {edges.map(({ node }) => {
         let slug = `/blog/${node.frontmatter.id}`;
         if (node.frontmatter.lang !== 'en') {
-          slug = `/blog/${node.frontmatter.lang}/${node.frontmatter.id}`;
+          slug = `/${node.frontmatter.lang}/blog/${node.frontmatter.id}`;
         }
         return (
           <div key={node.id}>
@@ -35,7 +39,7 @@ const Blog: React.FC<Props> = props => {
           </div>
         );
       })}
-    </div>
+    </Layout>
   );
 };
 

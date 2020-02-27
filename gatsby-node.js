@@ -103,7 +103,7 @@ exports.createPages = ({ actions, graphql }) => {
       const next = index === 0 ? null : spanishPosts[index - 1].node;
       const prev = index === spanishPosts.length - 1 ? null : spanishPosts[index + 1].node;
       createPage({
-        path: `/blog/es/${node.frontmatter.id}`,
+        path: `/es/blog/${node.frontmatter.id}`,
         component: path.resolve('./src/templates/Post.tsx'),
         context: {
           id: node.frontmatter.id,

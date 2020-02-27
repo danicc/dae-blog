@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { WindowLocation } from '@reach/router';
 
-const IndexPage: React.FC = () => {
+import Layout from '../components/layout';
+
+interface Props {
+  location: WindowLocation;
+}
+const IndexPage: React.FC<Props> = ({ location }) => {
   return (
-    <div>
+    <Layout location={location}>
       <h1> Daniel Esquinzi</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <Link to="/blog/">Blog</Link>
-    </div>
+    </Layout>
   );
 };
 

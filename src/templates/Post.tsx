@@ -1,8 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { WindowLocation } from '@reach/router';
 
-const Post: React.FC = props => {
-  return <div>POST</div>;
+import Layout from '../components/layout';
+import PostType from '../models/Post';
+
+interface Props {
+  location: WindowLocation;
+  data: {
+    markdownRemark: PostType;
+  };
+}
+const Post: React.FC<Props> = ({ location, data }) => {
+  return <Layout location={location}>{data.markdownRemark.frontmatter.title}</Layout>;
 };
 
 export default Post;
