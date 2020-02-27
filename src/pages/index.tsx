@@ -31,7 +31,7 @@ const IndexPage: React.FC<Props> = ({ location, data }) => {
               Hi. I am <br />
               Daniel Alberto Esquinazi
             </h1>
-            <p>I write about Javascript, React and other frontend technologies</p>
+            <p>Here I am going to write about Javascript, React and other frontend technologies</p>
             <Link to="/contact">
               <Button big={true}>
                 <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -54,18 +54,22 @@ const IndexPage: React.FC<Props> = ({ location, data }) => {
           <HomepageContent>
             <h2>About Me</h2>
             <p>
-              I am from Argentina, Salta. I consider myself as an enthusiast software developer who loves learning new technologies and
-              share what I learnt with my friends.
+              I live in Salta, Argentina but I born on a small city called Tartagal. I am a software developer who loves learning new
+              technologies and play around or create things with them. Specifically I like working on the frontend using React, Typescript,
+              Graphql, CSS-in-JS and other tools.
             </p>
             <hr />
             <h2>Latest Blog</h2>
-            {edges.map(post => (
+            {edges.map(({ node: blogPost }) => (
               <Article
-                title={post.node.frontmatter.title}
-                date={post.node.frontmatter.date}
-                excerpt={post.node.excerpt}
-                category={post.node.frontmatter.category}
-                key={post.node.id}
+                id={blogPost.frontmatter.id}
+                lang={blogPost.frontmatter.lang}
+                title={blogPost.frontmatter.title}
+                date={blogPost.frontmatter.date}
+                excerpt={blogPost.excerpt}
+                category={blogPost.frontmatter.category}
+                timeToRead={blogPost.timeToRead}
+                key={blogPost.id}
               />
             ))}
             <p className={'textRight'}>
@@ -86,10 +90,11 @@ export const IndexQuery = graphql`
       totalCount
       edges {
         node {
-          fields {
-            slug
-          }
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
           frontmatter {
+            id
+            lang
             title
             date(formatString: "DD.MM.YYYY")
             category

@@ -6,8 +6,8 @@ import Subline from './Subline';
 const Post = styled.article`
   display: flex;
   flex-direction: column;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 const Title = styled.h2`
@@ -32,26 +32,29 @@ const Excerpt = styled.p`
 `;
 
 interface Props {
+  id: string;
+  lang: string;
   title: string;
   date: string;
   excerpt: string;
   category: string;
+  timeToRead: number;
 }
 
 export default class Article extends React.PureComponent<Props> {
   public render() {
-    const { title, date, excerpt } = this.props;
+    const { id, lang, title, date, excerpt, timeToRead, category } = this.props;
     const firstChar = title.charAt(0);
-
+    const blogPostLink = lang === 'en' ? `/blog/${id}` : `${lang}/blog/${id}`;
     return (
       <Post>
         <Title>
           <Initiale>{firstChar}</Initiale>
-          <Link to={`/blog/`}>{title}</Link>
+          <Link to={blogPostLink}>{title}</Link>
         </Title>
         <Subline>
-          {date} &mdash; timetoRead Min Read &mdash; In
-          {/* <Link to={`/categories/${kebabCase(category)}`}> {category}</Link> */}
+          {date} &mdash; {timeToRead} Min Read &mdash; In
+          <span> {category}</span>
         </Subline>
         <Excerpt>{excerpt}</Excerpt>
       </Post>
