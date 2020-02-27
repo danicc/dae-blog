@@ -2,8 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 import theme from '../config/Theme';
 import { media } from '../utils/media';
+import robotoRegular from '../fonts/roboto-regular.ttf';
 
 export default createGlobalStyle`
+@font-face {
+  font-family: "roboto-regular";
+  src: url(${robotoRegular});
+}
+* {
+  font-family: roboto-regular
+}
 ::selection {
   color: ${theme.colors.bg};
   background: ${theme.colors.primary};

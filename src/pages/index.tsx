@@ -3,8 +3,8 @@ import { Link, graphql } from 'gatsby';
 import { WindowLocation } from '@reach/router';
 
 import { HomeLayout, Homepage, HomeRow, HomepageContent, LogoContainer, Logo, LanguageContainer } from '../components/Home';
-import config from '../config/SiteConfig';
 import { Article, Button, LanguageSelector } from '../components/';
+import logo from '../images/logo.png';
 
 import Data from '../models/Data';
 
@@ -25,7 +25,7 @@ const IndexPage: React.FC<Props> = ({ location, data }) => {
         <HomeRow background={true}>
           <HomepageContent center={true}>
             <LogoContainer>
-              <Logo src={config.siteLogo} />
+              <Logo src={logo} />
             </LogoContainer>
             <h1>
               Hi. I am <br />

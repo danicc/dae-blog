@@ -4,6 +4,7 @@ import { media } from '../../utils/media';
 import rgba from 'polished/lib/color/rgba';
 import darken from 'polished/lib/color/darken';
 import lighten from 'polished/lib/color/lighten';
+import bacgkround from '../../images/bg.jpg';
 
 interface Props {
   background?: boolean;
@@ -20,7 +21,7 @@ const HomeRow = styled.div<Props>`
       ? `linear-gradient(
       -185deg,
       ${rgba(darken(0.1, theme.colors.primary), 0.7)}, 
-      ${rgba(lighten(0.1, theme.colors.grey.dark), 0.9)}), url(/dae-blog/assets/bg.jpg) no-repeat`
+      ${rgba(lighten(0.1, theme.colors.grey.dark), 0.9)}), url(${bacgkround}) no-repeat`
       : null};
   background-size: cover;
   padding: 2rem 4rem;
