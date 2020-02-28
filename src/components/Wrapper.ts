@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { media } from '../utils/media';
 
 interface Props {
-  fullWidth: boolean;
+  fullWidth?: boolean;
 }
 
 const WrapperContainer = styled.div<Props>`

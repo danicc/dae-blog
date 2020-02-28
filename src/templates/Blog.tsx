@@ -1,10 +1,12 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { WindowLocation } from '@reach/router';
 
 import Data from '../models/Data';
 import AllMarkdownRemark from '../models/AllMarkdownRemark';
-import Layout from '../components/Layout';
+import { Layout, Wrapper, Content, Article, Pagination, SectionTitle } from '../components';
+import { getCurrentLangKey } from 'ptz-i18n';
+import config from '../config/SiteConfig';
 
 interface Props {
   data: Data;
@@ -20,25 +22,29 @@ const Blog: React.FC<Props> = props => {
 
   const { data, location } = props;
   const { edges, totalCount }: AllMarkdownRemark = data.allMarkdownRemark;
+  const { langs, defaultLang } = config;
+  const langKey = getCurrentLangKey(langs, defaultLang, location.pathname);
+  const langUrl = langKey === defaultLang ? '' : 'es';
+
   return (
-    <Layout location={location}>
-      {`totalCount ${totalCount}`}
-      {`currentPage ${currentPage}`}
-      {`totalPages ${totalPages}`}
-      {edges.map(({ node }) => {
-        let slug = `/blog/${node.frontmatter.id}`;
-        if (node.frontmatter.lang !== 'en') {
-          slug = `/${node.frontmatter.lang}/blog/${node.frontmatter.id}`;
-        }
-        return (
-          <div key={node.id}>
-            <Link to={slug}>
-              <h3>{node.frontmatter.title}</h3>
-              <p>{node.excerpt}</p>
-            </Link>
-          </div>
-        );
-      })}
+    <Layout location={location} title={`Latest stories (${totalCount})`}>
+      <Wrapper>
+        <Content>
+          {edges.map(({ node }) => (
+            <Article
+              id={node.frontmatter.id}
+              lang={node.frontmatter.lang}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+              timeToRead={node.timeToRead}
+              category={node.frontmatter.category}
+              key={node.id}
+            />
+          ))}
+          <Pagination currentPage={currentPage} totalPages={totalPages} url={`${langUrl}/blog`} />
+        </Content>
+      </Wrapper>
     </Layout>
   );
 };
@@ -51,14 +57,16 @@ export const BlogQuery = graphql`
       totalCount
       edges {
         node {
+          timeToRead
+          excerpt(truncate: false, pruneLength: 250)
           frontmatter {
             id
+            lang
             title
             date(formatString: "DD.MM.YYYY")
             category
             lang
           }
-          excerpt
         }
       }
     }

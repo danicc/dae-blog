@@ -45,7 +45,7 @@ export default class Article extends React.PureComponent<Props> {
   public render() {
     const { id, lang, title, date, excerpt, timeToRead, category } = this.props;
     const firstChar = title.charAt(0);
-    const blogPostLink = lang === 'en' ? `/blog/${id}` : `${lang}/blog/${id}`;
+    const blogPostLink = lang === 'en' ? `/blog/post/${id}` : `${lang}/blog/post/${id}`;
     return (
       <Post>
         <Title>

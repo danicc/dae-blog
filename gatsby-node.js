@@ -69,7 +69,7 @@ exports.createPages = ({ actions, graphql }) => {
       const next = index === 0 ? null : englishPosts[index - 1].node;
       const prev = index === englishPosts.length - 1 ? null : englishPosts[index + 1].node;
       createPage({
-        path: `/blog/${node.frontmatter.id}`,
+        path: `/blog/post/${node.frontmatter.id}`,
         component: path.resolve('./src/templates/Post.tsx'),
         context: {
           id: node.frontmatter.id,
@@ -103,7 +103,7 @@ exports.createPages = ({ actions, graphql }) => {
       const next = index === 0 ? null : spanishPosts[index - 1].node;
       const prev = index === spanishPosts.length - 1 ? null : spanishPosts[index + 1].node;
       createPage({
-        path: `/es/blog/${node.frontmatter.id}`,
+        path: `/es/blog/post/${node.frontmatter.id}`,
         component: path.resolve('./src/templates/Post.tsx'),
         context: {
           id: node.frontmatter.id,

@@ -1,41 +1,28 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
 import { WindowLocation } from 'reach__router';
 import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../config/Theme';
 import Header from './Header';
 import GlobalStyle from './GlobalStyle';
+import SectionTitle from './SectionTitle';
 
 interface Props {
   children: React.ReactNode;
   location: WindowLocation;
+  title: string;
 }
-const Layout: React.FC<Props> = ({ children, location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          languages {
-            langs
-            defaultLang
-          }
-        }
-      }
-    }
-  `);
+const Layout: React.FC<Props> = ({ children, location, title }) => {
   const url = location.pathname;
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header currentUrl={url} />
-        <Link to={`/`}>
-          <h3>{data.site.siteMetadata.title}</h3>
-        </Link>
-        {children}
+        <Header currentUrl={url}>
+          <SectionTitle uppercase={true}>{title}</SectionTitle>
+        </Header>
+        <Content>{children}</Content>
       </Container>
     </ThemeProvider>
   );
@@ -43,6 +30,9 @@ const Layout: React.FC<Props> = ({ children, location }) => {
 
 export default Layout;
 
-const Container = styled.div`
-  background: lightblue;
+const Container = styled.div``;
+
+const Content = styled.div`
+  position: relative;
+  z-index: 999;
 `;
