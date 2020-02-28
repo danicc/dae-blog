@@ -1,11 +1,11 @@
 ---
 id: '3'
 date: '2018-02-24'
-title: 'Algo'
+title: 'Something Copy'
 category: 'React'
 tags: ['react', 'hook']
 banner: '/images/bg/3.jpg'
-lang: 'es'
+lang: 'en'
 ---
 
-# Algo Post 3
+# Something Copy Post 3

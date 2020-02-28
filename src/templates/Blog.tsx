@@ -4,7 +4,7 @@ import { WindowLocation } from '@reach/router';
 
 import Data from '../models/Data';
 import AllMarkdownRemark from '../models/AllMarkdownRemark';
-import { Layout, Wrapper, Content, Article, Pagination, SectionTitle } from '../components';
+import { Layout, Wrapper, Content, Article, Pagination } from '../components';
 import { getCurrentLangKey } from 'ptz-i18n';
 import config from '../config/SiteConfig';
 

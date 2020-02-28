@@ -6,20 +6,23 @@ import theme from '../config/Theme';
 import Header from './Header';
 import GlobalStyle from './GlobalStyle';
 import SectionTitle from './SectionTitle';
+import backgroundImage from '../images/bg.jpg';
 
 interface Props {
   children: React.ReactNode;
   location: WindowLocation;
   title: string;
+  banner?: string;
 }
-const Layout: React.FC<Props> = ({ children, location, title }) => {
+
+const Layout: React.FC<Props> = ({ children, location, title, banner = backgroundImage }) => {
   const url = location.pathname;
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header currentUrl={url}>
+        <Header currentUrl={url} banner={banner}>
           <SectionTitle uppercase={true}>{title}</SectionTitle>
         </Header>
         <Content>{children}</Content>

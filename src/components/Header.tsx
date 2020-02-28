@@ -3,20 +3,19 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { darken, lighten } from 'polished';
 import rgba from 'polished/lib/color/rgba';
+import { getCurrentLangKey } from 'ptz-i18n';
 
-import logo from '../images/logo.png';
 import backgroundImage from '../images/bg.jpg';
-
-import LanguageSelector from './LanguageSelector';
 import { media } from '../utils/media';
 import config from '../config/SiteConfig';
-import { getCurrentLangKey } from 'ptz-i18n';
+import { Logo, LanguageSelector } from './';
 
 interface Props {
   currentUrl: string;
+  banner?: string;
 }
 
-const Header: React.FC<Props> = ({ currentUrl, children }) => {
+const Header: React.FC<Props> = ({ currentUrl, children, banner = backgroundImage }) => {
   const { langs, defaultLang } = config;
   const langKey = getCurrentLangKey(langs, defaultLang, currentUrl);
   const langUrl = langKey === defaultLang ? '' : '/es';
@@ -25,10 +24,10 @@ const Header: React.FC<Props> = ({ currentUrl, children }) => {
     return currentUrl.includes(`${langUrl}/${path}`);
   }
   return (
-    <HeaderWrapper banner={backgroundImage}>
+    <HeaderWrapper banner={banner}>
       <NavContainer>
         <HomeLink to={`${langUrl}/`}>
-          <img src={logo} alt="logo" width="100px" />
+          <Logo size="sm" />
           <span>Daniel A. Esquinazi</span>
         </HomeLink>
         <Menu>

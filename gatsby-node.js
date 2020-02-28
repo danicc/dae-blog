@@ -24,6 +24,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               id
+              title
               lang
             }
           }
@@ -35,6 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               id
+              title
               lang
             }
           }

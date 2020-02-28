@@ -7,5 +7,7 @@ import Header from './Header';
 import Content from './Content';
 import Pagination from './Pagination';
 import SectionTitle from './SectionTitle';
+import Logo from './Logo';
+import PrevNext from './PrevNext';
 
-export { Header, Wrapper, Layout, LanguageSelector, Button, Article, Content, Pagination, SectionTitle };
+export { Logo, Header, Wrapper, Layout, LanguageSelector, Button, Article, Content, Pagination, SectionTitle, PrevNext };

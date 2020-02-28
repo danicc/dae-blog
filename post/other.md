@@ -4,7 +4,7 @@ date: '2018-02-24'
 title: 'other original'
 category: 'React'
 tags: ['react', 'hook']
-banner: ''
+banner: '/images/bg/2.jpg'
 lang: 'en'
 ---
 
