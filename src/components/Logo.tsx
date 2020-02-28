@@ -29,14 +29,19 @@ export const LogoContainer = styled.div<SizeProp>`
           height: 80px;
           width: 80px;
           padding: 0 0.15rem;
-          border-radius: 60% 15%;
           `;
+      case 'md':
+        return `
+        height: 160px;
+        width: 160px; 
+        padding: 0.3rem 0.4rem;
+        `;
       default:
         return `
-          height: 160px;
-          width: 160px; 
-          padding: 0.3rem 0.4rem;
-          border-radius: 60% 15%;`;
+          height: 200px;
+          width: 200px; 
+          padding: 0.4rem 0.5rem;
+          `;
     }
   }}
 `;
@@ -48,8 +53,10 @@ export const LogoImage = styled.img<SizeProp>`
     switch (size) {
       case 'sm':
         return `height: 60px;`;
-      default:
+      case 'md':
         return `height: 120px;`;
+      default:
+        return `height: 160px;`;
     }
   }}
 `;
