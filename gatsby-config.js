@@ -1,6 +1,7 @@
 const siteMetadata = require('./src/data/siteMetadata');
 
 module.exports = {
+  pathPrefix: siteMetadata.pathPrefix,
   siteMetadata,
   plugins: [
     {

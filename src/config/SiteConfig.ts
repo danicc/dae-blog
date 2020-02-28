@@ -1,5 +1,4 @@
 export default {
-  pathPrefix: '/dae-blog', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
   langs: ['en', 'es'],
   defaultLang: 'en',
   siteTitle: 'Daniel Esquinazi Blog', // Navigation and Site Title
