@@ -20,8 +20,13 @@ interface Props {
 const Post: React.FC<Props> = ({ location, data, pageContext }) => {
   const post = data.markdownRemark;
   const { prev, next } = pageContext;
+  const inDevelopment = process.env.NODE_ENV === 'development';
   return (
-    <Layout location={location} title={post.frontmatter.title} banner={post.frontmatter.banner}>
+    <Layout
+      location={location}
+      title={post.frontmatter.title}
+      banner={inDevelopment ? post.frontmatter.banner : `/dae-blog/${post.frontmatter.banner}`}
+    >
       {post ? (
         <Wrapper>
           <Content>
