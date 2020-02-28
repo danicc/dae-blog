@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{"6+ep":function(e,n,t){"use strict";t.r(n);var o=t("q1tI"),a=t.n(o),c=t("Nhdc");n.default=function(e){var n=e.location;return a.a.createElement(c.e,{location:n,title:"Quien soy"},a.a.createElement("h1",null,"Quien soy"))}}}]);
+//# sourceMappingURL=component---src-pages-about-es-tsx-28c1b281826407314427.js.map
