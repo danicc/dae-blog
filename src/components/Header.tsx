@@ -17,7 +17,14 @@ interface Props {
 
 const Header: React.FC<Props> = ({ currentUrl, children, banner = backgroundImage }) => {
   const { langs, defaultLang } = config;
-  const langKey = getCurrentLangKey(langs, defaultLang, currentUrl);
+  const inDevelopment = process.env.NODE_ENV === 'development';
+  const realUrl = inDevelopment
+    ? currentUrl
+    : currentUrl
+        .split('/')
+        .slice(1)
+        .join('/');
+  const langKey = getCurrentLangKey(langs, defaultLang, realUrl);
   const langUrl = langKey === defaultLang ? '' : '/es';
 
   function isSelected(path: string): boolean {

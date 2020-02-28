@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-
 import { getLangs, getUrlForLang, getCurrentLangKey, LangMenuData } from 'ptz-i18n';
 
 interface Props {
@@ -23,8 +22,18 @@ const LanguageSelector: React.FC<Props> = ({ currentUrl }) => {
   `);
 
   const { langs, defaultLang } = data.site.siteMetadata.languages;
-  const langKey = getCurrentLangKey(langs, defaultLang, currentUrl);
-  const homeLink = `/${langKey !== 'en' ? langKey : ''}`;
+  const inDevelopment = process.env.NODE_ENV === 'development';
+  const realUrl = inDevelopment
+    ? currentUrl
+    : currentUrl
+        .split('/')
+        .slice(1)
+        .join('/');
+  const langKey = getCurrentLangKey(langs, defaultLang, realUrl);
+
+  let homeLink = `/${langKey !== 'en' ? langKey : ''}`;
+  homeLink = inDevelopment ? homeLink : `/dae-blog${homeLink}`;
+
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, currentUrl)).map((item: LangMenuData) => ({
     ...item,
     link: item.link.replace(`/${defaultLang}/`, '/'),
