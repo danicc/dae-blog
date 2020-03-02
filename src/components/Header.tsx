@@ -44,8 +44,8 @@ const Header: React.FC<Props> = ({ currentUrl, children, banner = backgroundImag
           <MenuItem to={`${langUrl}/about`} selected={isSelected('about')}>
             About
           </MenuItem>
+          <LanguageSelector currentUrl={currentUrl} />
         </Menu>
-        <LanguageSelector currentUrl={currentUrl} />
       </NavContainer>
       {children}
     </HeaderWrapper>
@@ -84,6 +84,10 @@ const NavContainer = styled.nav`
   align-items: center;
   padding: 0.5rem;
   box-sizing: content-box;
+  @media ${media.phone} {
+    flex-direction: column;
+    height: 20vh;
+  }
 `;
 
 const HomeLink = styled(Link)`

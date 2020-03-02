@@ -10,7 +10,7 @@ const Button = styled.button<Props>`
   border: none;
   display: inline-flex;
   align-items: center;
-  margin: 0 0.5rem;
+  margin: 0.2rem 0.5rem;
   border-radius: ${({ big }) => (big ? '1.5rem' : '1rem')};
   font-size: ${({ big }) => (big ? '1.2rem' : '1rem')};
   color: white;

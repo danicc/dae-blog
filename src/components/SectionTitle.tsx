@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../utils/media';
 
 const SectionTitle: any = styled.div`
   font-size: ${props => props.theme.fontSize.big};
@@ -17,6 +18,11 @@ const SectionTitle: any = styled.div`
     left: 50%;
     margin-left: -25px;
     background: ${props => props.theme.colors.white};
+  }
+  @media ${media.phone} {
+    padding: 0;
+    margin-bottom: 2.2rem;
+    font-size: ${props => props.theme.fontSize.medium};
   }
 `;
 

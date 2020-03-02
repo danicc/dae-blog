@@ -16,6 +16,7 @@ const transitions = {
 
 const fontSize = {
   small: '0.9rem',
+  medium: '1.9rem',
   big: '2.9rem',
 };
 
