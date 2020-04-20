@@ -1,13 +1,3 @@
----
-id: 1
-date: '2018-02-24'
-title: 'Entendiendo useState Hook'
-category: 'React'
-tags: ['react', 'hook']
-banner: '/images/bg/understand-useState-hook.jpg'
-lang: 'es'
----
-
 # useState
 
 ## ¿Qué es y para qué sirve ?
